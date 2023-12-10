@@ -2,9 +2,10 @@ import React from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import axios from 'axios';
 import { useState } from "react";
+import '@fontsource/roboto/400.css';
 
 import Validation from './LoginValidation';
-import { TextField, Button, Container, Typography } from '@mui/material';
+import { TextField, Button, Container, Typography, Box } from '@mui/material';
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Roboto&family=Roboto+Mono:wght@300;400&family=Ubuntu:ital@1&display=swap');
@@ -45,24 +46,25 @@ const handleSubmit = (event) => {
   return (
     <div className='d-flex justify-content-center align-items-center vh-100'>
         <div className='bg-white p-2 rounded w-25'>
-            <h3>Login Page</h3>
-            <form action='' onSubmit={handleSubmit}>
+            <Typography variant="h5" component="h1" margin={2}>Login Page</Typography>
+            
                 <div className='mb-3'>
-                    <label htmlFor=''><strong>Email</strong></label>
-                    <TextField type='email' placeholder='Enter email' name='email'
+                    <TextField fullWidth label="Enter email id"  type='email' placeholder='Enter email' name='email'
                     onChange={handleInput}/>
-                    <span>{errors.email && <span className='text-danger'> {errors.email} </span>}</span>
+                    <Typography>{errors.email && <span> {errors.email} </span>}</Typography>
+                    
                 </div>
-                <div className='mb-3'>
-                    <label htmlFor=''><strong>Password</strong></label>
-                    <input type='password' placeholder='Enter password' name='password'
-                    onChange={handleInput} className='form-control rounded-5'/>
-                    <span>{errors.password && <span className='text-danger'> {errors.password} </span>}</span>
+                <div className='mb-3' >
+                    <TextField fullWidth label="Enter password" id="fullWidth" type='password' placeholder='Enter password' name='password'
+                    onChange={handleInput} />
+                    <Typography>{errors.password && <span className='text-danger'> {errors.password} </span>}</Typography>
                 </div>
-                <Button type='submit' className='btn btn-default bg-light w-100 rounded-5 '><strong>Log in</strong></Button>
+                
+                <Box textAlign="center">
+                <Button variant="contained" onClick={handleSubmit}>Log in</Button>
                 <p></p>
-                <Link to ="/signup" className='btn btn-primary w-100 rounded-5 text-decoraton-none'>Create Account</Link> 
-            </form>
+                <Button variant="outlined" justifyContent="center" href="/signup">Create Account</Button> 
+                </Box>
         </div>
     </div>
   )

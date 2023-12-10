@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-import { TextField, Button, Container, Typography } from '@mui/material';
+import { TextField, Button, Container, Typography,Box } from '@mui/material';
 import Validation from './SignupValidation';
 import axios from 'axios';
 
@@ -33,35 +33,36 @@ const handleSubmit = (event) => {
   return (
     <div className='d-flex justify-content-center align-items-center  vh-100'>
         <div className='bg-white p-2 rounded w-25' >
-        <h3>Signup Page</h3>
+        <Typography variant="h5" component="h1" margin={2}>Signup Page</Typography>
             <form action='' onSubmit={handleSubmit}>
             <div className='mb-3'>
-                    <label htmlFor=''><strong>Name</strong></label>
-                    <input type='text' placeholder='Enter name' name = 'name'
-                    onChange={handleInput} className='form-control rounded-5'/>
-                    <span>{errors.name && <span className='text-danger'> {errors.name} </span>}</span>
+                    
+                <TextField fullWidth label="Enter name"  placeholder='Enter name' name='name'
+                    onChange={handleInput}/>
+                    <Typography>{errors.name && <span className='text-danger'> {errors.name} </span>}</Typography>
                 </div>
                 <div className='mb-3'>
-                    <label htmlFor=''><strong>Email</strong></label>
-                    <input type='email' placeholder='Enter email' name = 'email'
-                    onChange={handleInput} className='form-control rounded-5'/>
-                    <span>{errors.email && <span className='text-danger'> {errors.email} </span>}</span>
+                    
+                <TextField fullWidth label="Enter email id"  type='email' placeholder='Enter email' name='email'
+                    onChange={handleInput}/>
+                <Typography>{errors.email && <span className='text-danger'> {errors.email} </span>}</Typography>
                 </div>
                 <div className='mb-3'>
-                    <label htmlFor=''><strong>Password</strong></label>
-                    <input type='password' placeholder='Enter password' name = 'password'
-                    onChange={handleInput} className='form-control rounded-5'/>
-                    <span>{errors.password && <span className='text-danger'> {errors.password} </span>}</span>
+                <TextField fullWidth label="Enter password"  type='password' placeholder='Enter password' name='password'
+                    onChange={handleInput}/>
+                    <Typography>{errors.password && <span className='text-danger'> {errors.password} </span>}</Typography>
                 </div>
                 <div className='mb-3'>
-                    <label htmlFor=''><strong>Confirm Password</strong></label>
-                    <input type='password' placeholder='Enter your password again' name = 'password'
-                    onChange={handleInput} className='form-control rounded-5'/>
-                    <span>{errors.password && <span className='text-danger'> {errors.password} </span>}</span>
+                <TextField fullWidth label="Confirm password"  type='password' name='confirm password' placeholder='Confirm password'
+                    onChange={handleInput}/>
+                    <Typography>{errors.password && <span className='text-danger'> {errors.password} </span>}</Typography>
                 </div>
-                <Button type='submit' className='btn btn-default bg-light w-100 rounded-5'><strong>Sign up</strong></Button>
-                <p className=' '>Terms and conditions</p>
-                <Link to ="/signup" className='btn btn-primary w-100 rounded-5 text-decoraton-none'>Log in</Link> 
+
+                <Box textAlign="center">
+                <Button variant="contained" onClick={handleSubmit}>Sign up</Button>
+                <p></p>
+                <Button variant="outlined" justifyContent="center" href="/signup">Log in</Button> 
+                </Box>
             </form>
         </div>
     </div>
