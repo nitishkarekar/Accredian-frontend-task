@@ -31,7 +31,7 @@ const handleSubmit = (event) => {
 }
 
   return (
-    <div className='d-flex justify-content-center align-items-center  vh-100'>
+    <div className='d-flex justify-content-center align-items-center  vh-100 bg-secondary'>
         <div className='bg-white p-2 rounded w-25' >
         <Typography variant="h5" component="h1" margin={2}>Signup Page</Typography>
             <form action='' onSubmit={handleSubmit}>
