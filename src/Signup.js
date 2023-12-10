@@ -20,14 +20,17 @@ const handleInput = (event) => {
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    setErrors(Validation(values));
-    if(errors.name === '' && errors.email === '' && errors.password === '') {
+    const err = Validation(values);
+    
+    console.log(errors)
+    if(!err.name && !err.email && !err.password) {
         axios.post('https://accredian-backend-task-production-94a0.up.railway.app/signup', values)
         .then(res => {
             navigate('/')
         })
         .catch(err => console.log(err));
     }
+    setErrors(err)
 }
 
   return (

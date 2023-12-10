@@ -28,7 +28,7 @@ const handleInput = (event) => {
 const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
-    if(errors.email === '' && errors.password === '') {
+    if(!errors.email && !errors.password) {
         axios.post('https://accredian-backend-task-production-94a0.up.railway.app/login', values)
         .then(res => {
             
