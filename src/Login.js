@@ -28,7 +28,7 @@ const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
     if(errors.email === '' && errors.password === '') {
-        axios.post('http://localhost:8000/login', values)
+        axios.post('http://accredian-backend-task-production-94a0.up.railway.app/login', values)
         .then(res => {
             
             if(res.data === 'Success') {
@@ -49,8 +49,8 @@ const handleSubmit = (event) => {
             <form action='' onSubmit={handleSubmit}>
                 <div className='mb-3'>
                     <label htmlFor=''><strong>Email</strong></label>
-                    <input type='email' placeholder='Enter email' name='email'
-                    onChange={handleInput} className='form-control rounded-5 '/>
+                    <TextField type='email' placeholder='Enter email' name='email'
+                    onChange={handleInput}/>
                     <span>{errors.email && <span className='text-danger'> {errors.email} </span>}</span>
                 </div>
                 <div className='mb-3'>

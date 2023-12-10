@@ -22,7 +22,7 @@ const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(Validation(values));
     if(errors.name === '' && errors.email === '' && errors.password === '') {
-        axios.post('http://localhost:8000/signup', values)
+        axios.post('http://accredian-backend-task-production-94a0.up.railway.app/signup', values)
         .then(res => {
             navigate('/')
         })
